@@ -26,10 +26,10 @@ on:
     inputs:
       Tempoary_CONFIG:
         description: '配置文件'
-        default: 'x86_64'
+        default: 'Rockchip-r4se'
         type: choice
         options:
-          - 'x86_64'
+          - 'Rockchip-r4se'
       Tempoary_FLAG:
         description: '固件标签'
         default: 'AUTO'
@@ -58,7 +58,7 @@ on:
 ### 环境变量设置
 env:
 # 编译时调用的 [.config] 文件名称
-  CONFIG_FILE: x86_64
+  CONFIG_FILE: Rockchip-r4se
 # 源码仓库:分支
   DEFAULT_SOURCE: coolsnowwolf/lede:master
 # 删除无用文件以增加编译空间
