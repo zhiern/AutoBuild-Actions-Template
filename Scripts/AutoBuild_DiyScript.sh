@@ -48,7 +48,7 @@ Firmware_Diy() {
 	git clone -b main https://github.com/xiaorouji/openwrt-passwall package/passwall
         git clone -b main https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 	git clone -b main https://github.com/oppen321/luci-app-adguardhome package/luci-app-adguardhome
-        git clone -b main https://github.com/fw876/helloworld package/helloword
+        git clone -b master https://github.com/fw876/helloworld package/helloword
 	# 请在该函数内定制固件
 
 	# 可用预设变量, 其他可用变量请参考运行日志
