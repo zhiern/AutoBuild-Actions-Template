@@ -31,16 +31,24 @@ Firmware_Diy_Core() {
 }
 
 Firmware_Diy() {
-        sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-        sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-        ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns
-        rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
-        rm -rf feeds/packages/utils/v2dat
 	rm -rf feeds/luci/themes/luci-theme-argon
         rm -rf feeds/luci/themes/luci-theme-argon-mod
         rm -rf feeds/packages/lang/golang
-        git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-        ./scripts/feeds install -a 
+        find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+        find ./ | grep Makefile | grep mosdns | xargs rm -f
+        git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+        git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+	git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/downloads/luci-theme-argon
+	git clone -b main https://github.com/oppen321/openclash package/openclash
+        git clone -b main https://github.com/linkease/istore-ui package/istoreos-ui
+        git clone -b main https://github.com/linkease/istore package/istoreos
+	git clone -b main https://github.com/kenzok8/golang feeds/packages/lang/golang 
+        git clone -b main https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-package
+	git clone -b main https://github.com/xiaorouji/openwrt-passwall package/passwall
+        git clone -b main https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
+	git clone -b main https://github.com/oppen321/luci-app-adguardhome package/luci-app-adguardhome
+        git clone -b main https://github.com/fw876/helloworld package/helloword
 	# 请在该函数内定制固件
 
 	# 可用预设变量, 其他可用变量请参考运行日志
