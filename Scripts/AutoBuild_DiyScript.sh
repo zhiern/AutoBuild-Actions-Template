@@ -91,7 +91,8 @@ Firmware_Diy() {
         find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 	./scripts/feeds update -a
         ./scripts/feeds install -a
-
+        # 更改 Argon 主题背景
+        cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 	# 请在该函数内定制固件
 
 	# 可用预设变量, 其他可用变量请参考运行日志
