@@ -218,13 +218,8 @@ jobs:
             echo -e "\nCONFIG_DEVEL=y\nCONFIG_CCACHE=y\n" >> $GITHUB_WORKSPACE/Configs/$CONFIG_FILE
         fi
         cp $GITHUB_WORKSPACE/Configs/$CONFIG_FILE .config
-        chmod +x $GITHUB_WORKSPACE/scripts/*.sh
-        chmod +x $GITHUB_WORKSPACE/Scripts/*.sh
         source $GITHUB_WORKSPACE/Scripts/AutoBuild_DiyScript.sh
         source $GITHUB_WORKSPACE/Scripts/AutoBuild_Function.sh
-        source $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
-        source $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
-        source $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $CLASH_KERNEL
         make defconfig
         Firmware_Diy_Start
         rm -f .config && cp $GITHUB_WORKSPACE/Configs/$CONFIG_FILE .config
